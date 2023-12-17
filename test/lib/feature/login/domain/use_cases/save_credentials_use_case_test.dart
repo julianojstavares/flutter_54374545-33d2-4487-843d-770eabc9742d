@@ -24,18 +24,16 @@ void main() {
     );
   });
 
-  group("Credentials Use Case", () {
-    test("Should save login credentials", () async {
-      const credentials = TestData.validInput;
+  test("Should call save login credentials", () async {
+    const credentials = TestData.validInput;
 
-      when(() => sharedPreferences.saveCredentials(credentials))
-          .thenAnswer((_) async => {});
+    when(() => sharedPreferences.saveCredentials(credentials))
+        .thenAnswer((_) async => {});
 
-      await saveCredentialsUseCase.call(credentials);
+    await saveCredentialsUseCase.call(credentials);
 
-      verify(
-        () => sharedPreferences.saveCredentials(credentials),
-      ).called(1);
-    });
+    verify(
+      () => sharedPreferences.saveCredentials(credentials),
+    ).called(1);
   });
 }
