@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_study/feature/login/presentation/controller/form_validator_mixin.dart';
+import 'package:flutter_study/feature/login/presentation/controllers/form_validator_mixin.dart';
+import 'package:flutter_study/feature/login/presentation/controllers/login_submit_controller.dart';
 
-import '../controller/login_form_controller.dart';
+import '../controllers/login_form_controller.dart';
 
 class LoginFormWidget extends StatefulWidget {
-  const LoginFormWidget({super.key});
+  final LoginSubmitController loginController;
+  const LoginFormWidget({super.key, required this.loginController});
 
   @override
   State<LoginFormWidget> createState() => _LoginFormWidgetState();
@@ -17,6 +19,8 @@ class _LoginFormWidgetState extends State<LoginFormWidget>
 
   @override
   Widget build(BuildContext context) {
+  final controller = widget.loginController;
+
     return ListenableBuilder(
       listenable: _loginFormController,
       builder: (context, child) => Form(
@@ -55,12 +59,9 @@ class _LoginFormWidgetState extends State<LoginFormWidget>
                 Expanded(
                   child: ElevatedButton(
                     onPressed: _loginFormController.isFormValid
-                        ? () => ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(
-                                content: Text(
-                                  'Processando Dados. \nUsuário: ${_loginFormController.username} \nSenha: ${_loginFormController.password}',
-                                ),
-                              ),
+                        ? () => controller.submitLogin(
+                              _loginFormController.username,
+                              _loginFormController.password,
                             )
                         : null,
                     child: const Text('Enviar'),
