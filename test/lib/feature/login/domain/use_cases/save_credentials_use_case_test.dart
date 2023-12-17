@@ -27,13 +27,13 @@ void main() {
   test("Should call save login credentials", () async {
     const credentials = TestData.validInput;
 
-    when(() => sharedPreferences.saveCredentials(credentials))
+    when(() => sharedPreferences.saveCredentials("test", credentials))
         .thenAnswer((_) async => {});
 
-    await saveCredentialsUseCase.call(credentials);
+    await saveCredentialsUseCase.call(key: "test", credentials: credentials);
 
     verify(
-      () => sharedPreferences.saveCredentials(credentials),
+      () => sharedPreferences.saveCredentials("test", credentials),
     ).called(1);
   });
 }

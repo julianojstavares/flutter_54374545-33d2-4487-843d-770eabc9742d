@@ -27,19 +27,19 @@ void main() {
   group("Retrieve Credentials", () {
     test('should return credentials when they are available', () async {
       const expectedCredentials = TestData.validInput;
-      when(() => sharedPreferences.retrieveCredentials())
+      when(() => sharedPreferences.retrieveCredentials("test"))
           .thenAnswer((_) async => expectedCredentials);
 
-      final result = await retrieveCredentialsUseCase.call();
+      final result = await retrieveCredentialsUseCase.call(key: "test");
 
       expect(result, equals(expectedCredentials));
     });
 
     test('should return null when no credentials are available', () async {
-      when(() => sharedPreferences.retrieveCredentials())
+      when(() => sharedPreferences.retrieveCredentials("test"))
           .thenAnswer((_) async => null);
 
-      final result = await retrieveCredentialsUseCase.call();
+      final result = await retrieveCredentialsUseCase.call(key: "test");
 
       expect(result, isNull);
     });

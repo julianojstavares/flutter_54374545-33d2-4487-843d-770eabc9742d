@@ -23,13 +23,13 @@ void main() {
   });
 
   test("Should call clear login credentials", () async {
-    when(() => sharedPreferences.clearCredentials())
+    when(() => sharedPreferences.clearCredentials("test"))
         .thenAnswer((_) async => {});
 
-    await clearCredentialsUseCase.call();
+    await clearCredentialsUseCase.call(key: "test");
 
     verify(
-      () => sharedPreferences.clearCredentials(),
+      () => sharedPreferences.clearCredentials("test"),
     ).called(1);
   });
 }
