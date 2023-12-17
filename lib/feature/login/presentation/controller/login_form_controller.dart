@@ -7,7 +7,7 @@ class LoginFormController extends ChangeNotifier {
 
   String get username => _username;
   String get password => _password;
-  bool get isFormValid => _isFormValid;  
+  bool get isFormValid => _isFormValid;
 
   void setUsername(String value) {
     _username = value;
@@ -22,5 +22,22 @@ class LoginFormController extends ChangeNotifier {
   void validate(bool isValid) {
     _isFormValid = isValid;
     notifyListeners();
+  }
+
+  void updateUsernameAndFormState(String value, GlobalKey<FormState> formKey) {
+    _username = value;
+    _updateFormState(formKey);
+    notifyListeners();
+  }
+
+  void updatePasswordAndFormState(String value, GlobalKey<FormState> formKey) {
+    _password = value;
+    _updateFormState(formKey);
+    notifyListeners();
+  }
+
+  void _updateFormState(GlobalKey<FormState> formKey) {
+    bool isValid = formKey.currentState?.validate() ?? false;
+    _isFormValid = isValid;
   }
 }
