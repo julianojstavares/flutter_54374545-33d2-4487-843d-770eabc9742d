@@ -6,8 +6,8 @@ class RetrieveCredentialsUseCase {
 
   RetrieveCredentialsUseCase({required this.credentialsRepository});
 
-  Future<LoginInputEntity?> call() async {
-    final credentials = await credentialsRepository.retrieveCredentials();
+  Future<LoginInputEntity?> call({required String key}) async {
+    final credentials = await credentialsRepository.retrieveCredentials(key);
     return credentials;
   }
 }

@@ -7,8 +7,8 @@ class ClearCredentialsUseCase {
     required this.credentialsRepository,
   });
 
-  Future<void> call() async {
-    await credentialsRepository.clearCredentials();
+  Future<void> call({required String key}) async {
+    await credentialsRepository.clearCredentials(key);
     return;
   }
 }

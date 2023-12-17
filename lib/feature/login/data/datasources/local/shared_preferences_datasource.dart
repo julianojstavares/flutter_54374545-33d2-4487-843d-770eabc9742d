@@ -4,18 +4,20 @@ import '../../../domain/entities/login_input_entity.dart';
 import '../ilocal_datasource.dart';
 
 class SharedPreferencesDatasource implements ILocalDatasource {
-  static const String _key = 'login_credentials';
+  final SharedPreferences _prefs;
+
+  SharedPreferencesDatasource({
+    required SharedPreferences prefs,
+  }) : _prefs = prefs;
 
   @override
-  Future<void> clearCredentials() async {
-    final prefs = await SharedPreferences.getInstance();
-    await prefs.remove(_key);
+  Future<void> clearCredentials(String key) async {
+    await _prefs.remove(key);
   }
 
   @override
-  Future<LoginInputEntity?> retrieveCredentials() async {
-    final prefs = await SharedPreferences.getInstance();
-    final credentials = prefs.getStringList(_key);
+  Future<LoginInputEntity?> retrieveCredentials(String key) async {
+    final credentials = _prefs.getStringList(key);
     if (credentials != null && credentials.length == 2) {
       return LoginInputEntity(
         username: credentials[0],
@@ -26,8 +28,8 @@ class SharedPreferencesDatasource implements ILocalDatasource {
   }
 
   @override
-  Future<void> saveCredentials(LoginInputEntity credentials) async {
-    final prefs = await SharedPreferences.getInstance();
-    await prefs.setStringList(_key, [credentials.username, credentials.password]);
+  Future<void> saveCredentials(String key, LoginInputEntity credentials) async {
+    await _prefs
+        .setStringList(key, [credentials.username, credentials.password]);
   }
 }

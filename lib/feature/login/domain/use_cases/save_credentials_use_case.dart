@@ -7,8 +7,11 @@ class SaveCredentialsUseCase {
 
   SaveCredentialsUseCase({required this.credentialsRepository});
 
-  Future<void> call(LoginInputEntity credentials) async {
-    await credentialsRepository.saveCredentials(credentials);
+  Future<void> call({
+    required String key,
+    required LoginInputEntity credentials,
+  }) async {
+    await credentialsRepository.saveCredentials(key, credentials);
     return;
   }
 }

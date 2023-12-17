@@ -9,18 +9,18 @@ class CredentialsRepository implements ICredentialsRepository {
   CredentialsRepository({required this.localDatasource});
 
   @override
-  Future<void> saveCredentials(LoginInputEntity credentials) async {
-    await localDatasource.saveCredentials(credentials);
+  Future<void> saveCredentials(String key, LoginInputEntity credentials) async {
+    await localDatasource.saveCredentials(key, credentials);
   }
 
   @override
-  Future<LoginInputEntity?> retrieveCredentials() async {
-    return await localDatasource.retrieveCredentials();
+  Future<LoginInputEntity?> retrieveCredentials(String key) async {
+    return await localDatasource.retrieveCredentials(key);
   }
 
   @override
-  Future<void> clearCredentials() async {
-    await localDatasource.clearCredentials();
+  Future<void> clearCredentials(String key) async {
+    await localDatasource.clearCredentials(key);
   }
 
 }
