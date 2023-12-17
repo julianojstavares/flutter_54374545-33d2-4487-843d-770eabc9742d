@@ -1,7 +1,7 @@
 import 'package:flutter_study/feature/login/data/datasources/external/fake_api.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import '../../../../../shared/test_data.dart';
+import '../../../../../../shared/test_data.dart';
 
 void main() {
   group("Fake API", () {
