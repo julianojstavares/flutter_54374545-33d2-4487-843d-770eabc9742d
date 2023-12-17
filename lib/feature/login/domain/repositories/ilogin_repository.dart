@@ -2,4 +2,5 @@ import 'package:flutter_study/feature/login/domain/entities/login_input_entity.d
 
 abstract class ILoginRepository {
   Future<bool> login(LoginInputEntity input);
+
 }
