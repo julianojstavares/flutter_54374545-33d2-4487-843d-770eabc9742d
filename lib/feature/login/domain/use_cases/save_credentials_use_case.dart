@@ -1,9 +1,9 @@
-import 'package:flutter_study/feature/login/domain/entities/login_input_entity.dart';
 
-import '../../data/repositories/credentials_repository.dart';
+import '../entities/login_input_entity.dart';
+import '../repositories/icredentials_repository.dart';
 
 class SaveCredentialsUseCase {
-  final CredentialsRepository credentialsRepository;
+  final ICredentialsRepository credentialsRepository;
 
   SaveCredentialsUseCase({required this.credentialsRepository});
 
