@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 
-import '../../../../../shared/test_data.dart';
+import '../../../../shared/test_data.dart';
 
 void main() {
   group("LoginInputEntity", () {

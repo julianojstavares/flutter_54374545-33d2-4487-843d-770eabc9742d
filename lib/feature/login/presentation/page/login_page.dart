@@ -29,8 +29,6 @@ class LoginPage extends StatelessWidget {
                         return LoginCardWidget(controller: controller);
                       case LoginSubmitLoading():
                         return const CircularProgressIndicator();
-                      case LoginSubmitSuccess():
-                        return const Text('Login successful');
                       case LoginSubmitError():
                         final state = controller.state;
                         final loginError = (state as LoginSubmitError);

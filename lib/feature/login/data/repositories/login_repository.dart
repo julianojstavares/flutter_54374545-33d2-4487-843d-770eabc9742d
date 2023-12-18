@@ -1,14 +1,18 @@
-import 'package:flutter_study/feature/login/data/datasources/ilogin_datasource.dart';
-import 'package:flutter_study/feature/login/domain/entities/login_input_entity.dart';
-import 'package:flutter_study/feature/login/domain/repositories/ilogin_repository.dart';
+
+import '../../../../core/domain/entities/login_input_entity.dart';
+import '../../domain/repositories/ilogin_repository.dart';
+import '../datasources/iexternal_datasource.dart';
 
 class LoginRepository implements ILoginRepository {
-  final ILoginDatasource loginDatasource;
+  final IExternalDatasource externalDatasource;
 
-  LoginRepository({required this.loginDatasource});
+
+  LoginRepository({
+    required this.externalDatasource,
+  });
 
   @override
   Future<bool> login(LoginInputEntity input) async {
-    return await loginDatasource.login(input);
+    return await externalDatasource.login(input);
   }
 }

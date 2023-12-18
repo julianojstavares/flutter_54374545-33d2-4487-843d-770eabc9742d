@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_study/feature/login/presentation/controllers/form_validator_mixin.dart';
-import 'package:flutter_study/feature/login/presentation/controllers/login_submit_controller.dart';
 
+import '../controllers/form_validator_mixin.dart';
 import '../controllers/login_form_controller.dart';
+import '../controllers/login_submit_controller.dart';
 
 class LoginFormWidget extends StatefulWidget {
   final LoginSubmitController loginController;
@@ -19,7 +19,7 @@ class _LoginFormWidgetState extends State<LoginFormWidget>
 
   @override
   Widget build(BuildContext context) {
-  final controller = widget.loginController;
+    final controller = widget.loginController;
 
     return ListenableBuilder(
       listenable: _loginFormController,
