@@ -1,4 +1,4 @@
-package com.example.onebox_test
+package dev.julianotavares.fake_login
 
 import io.flutter.embedding.android.FlutterActivity
 

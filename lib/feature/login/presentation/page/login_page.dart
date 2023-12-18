@@ -37,7 +37,9 @@ class LoginPage extends StatelessWidget {
                         );
                     }
                   },
-                )
+                ),
+                const SizedBox(height: 20),
+                const Text("Autor: Juliano Jerônimo da Silva Tavares"),
               ],
             ),
           ),
