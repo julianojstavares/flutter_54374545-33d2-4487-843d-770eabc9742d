@@ -1,7 +1,7 @@
-import '../../data/repositories/credentials_repository.dart';
+import '../../../../core/domain/repositories/icredentials_repository.dart';
 
 class ClearCredentialsUseCase {
-  final CredentialsRepository credentialsRepository;
+  final ICredentialsRepository credentialsRepository;
 
   ClearCredentialsUseCase({
     required this.credentialsRepository,

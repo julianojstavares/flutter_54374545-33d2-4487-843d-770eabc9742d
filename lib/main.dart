@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_study/app_module.dart';
 import 'package:flutter_study/app_widget.dart';
-import 'package:flutter_study/feature/login/data/datasources/local/shared_preferences_datasource.dart';
+import 'package:flutter_study/core/data/datasources/local/shared_preferences_datasource.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 final navigatorKey = GlobalKey<NavigatorState>();
@@ -21,10 +21,10 @@ void main() async {
 
   if (credentials != null) {
     initialRoute = '/home/';
-    Modular.setInitialRoute(initialRoute);
   } else {
-    Modular.setInitialRoute('/login/');
+    initialRoute = '/login/';
   }
+  Modular.setInitialRoute(initialRoute);
   Modular.setNavigatorKey(navigatorKey);
 
   runApp(ModularApp(

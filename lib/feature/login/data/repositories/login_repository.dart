@@ -1,5 +1,5 @@
 
-import '../../domain/entities/login_input_entity.dart';
+import '../../../../core/domain/entities/login_input_entity.dart';
 import '../../domain/repositories/ilogin_repository.dart';
 import '../datasources/iexternal_datasource.dart';
 

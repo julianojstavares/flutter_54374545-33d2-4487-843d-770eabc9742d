@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_study/core/utils.dart';
-import 'package:flutter_study/feature/login/domain/entities/login_input_entity.dart';
+import 'package:flutter_study/core/domain/entities/login_input_entity.dart';
 import 'package:flutter_study/feature/login/domain/use_cases/login_use_case.dart';
 import 'package:flutter_study/feature/login/domain/use_cases/save_credentials_use_case.dart';
 

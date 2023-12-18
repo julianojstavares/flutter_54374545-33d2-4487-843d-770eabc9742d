@@ -1,13 +1,9 @@
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:flutter_study/app_module.dart';
 
+import '../../app_module.dart';
 import 'data/datasources/external/fake_api.dart';
 import 'data/datasources/iexternal_datasource.dart';
-import 'data/datasources/ilocal_datasource.dart';
-import 'data/datasources/local/shared_preferences_datasource.dart';
-import 'data/repositories/credentials_repository.dart';
 import 'data/repositories/login_repository.dart';
-import 'domain/repositories/icredentials_repository.dart';
 import 'domain/repositories/ilogin_repository.dart';
 import 'domain/use_cases/login_use_case.dart';
 import 'domain/use_cases/save_credentials_use_case.dart';
@@ -22,8 +18,6 @@ class LoginModule extends Module {
 
   @override
   void binds(i) async {
-    i.add<ILocalDatasource>(SharedPreferencesDatasource.new);
-    i.add<ICredentialsRepository>(CredentialsRepository.new);
     i.add(SaveCredentialsUseCase.new);
     i.add<IExternalDatasource>(FakeAPI.new);
     i.add<ILoginRepository>(LoginRepository.new);

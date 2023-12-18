@@ -1,6 +1,6 @@
-import 'package:flutter_study/feature/login/data/datasources/local/shared_preferences_datasource.dart';
-import 'package:flutter_study/feature/login/data/repositories/credentials_repository.dart';
-import 'package:flutter_study/feature/login/domain/use_cases/retrieve_credentials_use_case.dart';
+import 'package:flutter_study/core/data/datasources/local/shared_preferences_datasource.dart';
+import 'package:flutter_study/core/data/repositories/credentials_repository.dart';
+import 'package:flutter_study/feature/home/domain/use_cases/retrieve_credentials_use_case.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 

@@ -1,8 +1,8 @@
-import 'package:flutter_study/feature/login/data/datasources/local/shared_preferences_datasource.dart';
+import 'package:flutter_study/core/data/datasources/local/shared_preferences_datasource.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../../../../../../shared/test_data.dart';
+import '../../../../../shared/test_data.dart';
 
 /*
 Os testes unitários do Flutter são executados em um ambiente diferente

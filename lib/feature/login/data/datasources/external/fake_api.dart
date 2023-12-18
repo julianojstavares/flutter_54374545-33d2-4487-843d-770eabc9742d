@@ -1,5 +1,5 @@
 import 'package:flutter_study/feature/login/data/datasources/iexternal_datasource.dart';
-import 'package:flutter_study/feature/login/domain/entities/login_input_entity.dart';
+import 'package:flutter_study/core/domain/entities/login_input_entity.dart';
 import 'package:flutter_study/shared/fake_data.dart';
 
 class FakeAPI implements IExternalDatasource {

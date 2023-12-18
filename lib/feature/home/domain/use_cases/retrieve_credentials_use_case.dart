@@ -1,8 +1,9 @@
-import '../../data/repositories/credentials_repository.dart';
-import '../entities/login_input_entity.dart';
+
+import '../../../../core/domain/entities/login_input_entity.dart';
+import '../../../../core/domain/repositories/icredentials_repository.dart';
 
 class RetrieveCredentialsUseCase {
-  final CredentialsRepository credentialsRepository;
+  final ICredentialsRepository credentialsRepository;
 
   RetrieveCredentialsUseCase({required this.credentialsRepository});
 

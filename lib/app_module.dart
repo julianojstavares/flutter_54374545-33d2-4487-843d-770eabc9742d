@@ -1,22 +1,22 @@
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:flutter_study/main.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'core/data/datasources/ilocal_datasource.dart';
+import 'core/data/datasources/local/shared_preferences_datasource.dart';
+import 'core/data/repositories/credentials_repository.dart';
+import 'core/domain/repositories/icredentials_repository.dart';
 import 'feature/home/home_module.dart';
+import 'core/presentation/controller/credentials_controller.dart';
 import 'feature/login/login_module.dart';
-
-class SharedPreferencesService {
- final Future<SharedPreferences> _instance;
-
- SharedPreferencesService() : _instance = SharedPreferences.getInstance();
-
- Future<SharedPreferences> get instance => _instance;
-}
+import 'main.dart';
 
 class AppModule extends Module {
-    @override
+  @override
   void exportedBinds(i) {
     i.addInstance<SharedPreferences>(prefs);
+    i.addSingleton(CredentialsControler.new);
+    i.add<ILocalDatasource>(SharedPreferencesDatasource.new);
+    i.add<ICredentialsRepository>(CredentialsRepository.new);
   }
 
   @override

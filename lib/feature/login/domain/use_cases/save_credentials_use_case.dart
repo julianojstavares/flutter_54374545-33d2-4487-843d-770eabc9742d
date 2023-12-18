@@ -1,6 +1,6 @@
 
-import '../entities/login_input_entity.dart';
-import '../repositories/icredentials_repository.dart';
+import '../../../../core/domain/entities/login_input_entity.dart';
+import '../../../../core/domain/repositories/icredentials_repository.dart';
 
 class SaveCredentialsUseCase {
   final ICredentialsRepository credentialsRepository;

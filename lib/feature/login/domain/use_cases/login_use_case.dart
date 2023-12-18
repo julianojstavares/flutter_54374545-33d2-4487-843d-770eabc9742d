@@ -1,4 +1,4 @@
-import '../entities/login_input_entity.dart';
+import '../../../../core/domain/entities/login_input_entity.dart';
 import '../repositories/ilogin_repository.dart';
 
 class LoginUseCase {
