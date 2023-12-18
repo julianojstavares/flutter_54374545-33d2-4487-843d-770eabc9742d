@@ -1,4 +1,5 @@
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:flutter_study/app_module.dart';
 
 import 'data/datasources/external/fake_api.dart';
 import 'data/datasources/iexternal_datasource.dart';
@@ -14,6 +15,11 @@ import 'presentation/controllers/login_submit_controller.dart';
 import 'presentation/page/login_page.dart';
 
 class LoginModule extends Module {
+  @override
+  List<Module> get imports => [
+        AppModule(),
+      ];
+
   @override
   void binds(i) async {
     i.add<ILocalDatasource>(SharedPreferencesDatasource.new);
