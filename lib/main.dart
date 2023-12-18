@@ -1,20 +1,34 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
+import 'package:flutter_study/app_module.dart';
+import 'package:flutter_study/app_widget.dart';
+import 'package:flutter_study/core/data/datasources/local/shared_preferences_datasource.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-void main() {
-  runApp(const MainApp());
-}
+final navigatorKey = GlobalKey<NavigatorState>();
+late SharedPreferences prefs;
 
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  prefs = await SharedPreferences.getInstance();
 
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
-      ),
-    );
+  final localDatasource = SharedPreferencesDatasource(prefs: prefs);
+
+  final credentials =
+      await localDatasource.retrieveCredentials("login_credentials");
+
+  String initialRoute = "";
+
+  if (credentials != null) {
+    initialRoute = '/home/';
+  } else {
+    initialRoute = '/login/';
   }
+  Modular.setInitialRoute(initialRoute);
+  Modular.setNavigatorKey(navigatorKey);
+
+  runApp(ModularApp(
+    module: AppModule(),
+    child: const AppWidget(),
+  ));
 }
